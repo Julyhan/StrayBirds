@@ -60,8 +60,6 @@ nav:
     url: navigations/archives.html
   - text: 联系我
     url: navigations/contact.html
-  - text: 友情链接
-    url: navigations/links.html
 
 #Author config
 author:
