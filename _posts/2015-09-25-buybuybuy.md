@@ -11,6 +11,8 @@ comments: true
 
 [muji围巾](http://www.muji.net/store/cmdty/section/S1001408)
 
+[muji起泡瓶 50ml](http://www.muji.net/store/cmdty/detail/4945247506846?searchno=24)
+
 []()
 []()
 []()[]()
@@ -18,5 +20,9 @@ comments: true
 ### 购买渠道
 
 [天猫国际上线全球免税店 首站泰国与韩国](http://news.smzdm.com/p/15903)
+
+[全球购-足不出户，淘遍全球](http://g.taobao.com/)
+
+
 
 
