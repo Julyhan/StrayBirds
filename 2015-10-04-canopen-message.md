@@ -47,26 +47,36 @@ PDO映射参数
 * PROFILE TORQUE MODE
 * VELOCITY MODE
 
----
-索引: 6040h
-子索引: 0
-映射名称: 控制字
-数据长度: 16 U
-R/W: R/W
-备注:控制通讯状态，例如启动、停止等
----
----
-索引: 6040h
-子索引: 0
-映射名称: 控制字
-数据长度: 16 U
-R/W: R/W
-备注:控制通讯状态，例如启动、停止等
----
-
+###3.2 电机初始化时重要对象字典
 |索引        |子索引           |映射名称  | 数据长度 | R/W | 备注 |
+
 | ----- | -- | :---------------| :--------------:| :---:|:--------------------------------------------------------------------------|
-| 6040h | 0 | 控制字 | 16 U | R/W |  控制通讯状态，例如启动、停止等|
-| 6041h | 0 | 状态字 | 16 U | RO |  读取当前设备状态，例如启动、停止等|
-| 6060h | 0 | 控制模式 | 8Integer | R/W |  调节控制模式，例如速度、位置、转矩等控制模式|
+
+| 6040h | 0 | 控制字       | 16 U | R/W |  控制通讯状态，例如启动、停止等|
+
+| 6041h | 0 | 状态字       | 16 U     | RO    |  读取当前设备状态，例如启动、停止等|
+
+| 6060h | 0 | 控制模式     | 8Integer | R/W |  调节控制模式，例如速度、位置、转矩等控制模式|
+
 | 6061h | 0 | 控制模式状态 | 8Integer | Ro |  读取控制模式状态，例如速度、位置、转矩等控制模式|
+
+
+##4. 实验操作
+###4.1 编写程序，使用NI CanOpen库，不使用第三方电机控制
+* Interface Create(确定baudrate， interface number)
+* NMT Write(确定结点编号, enter pre-optional)
+* SDO Create(结点编号)
+* SDO Write(对象索引，子索引，写入数据)
+* * 6040h 启动
+* * 6061h 控制模式
+* SDO Read（对象索引，子索引）
+* * 6041h 状态字
+* * 6061h 控制模式状态
+* SDO Close
+* RPDO Create(PDO channel, node-ID, inhitbit time, event time)
+* NMT Write(start remote node)
+* RPDO Start
+* 循环调用RPDO Write(data)
+* RPDO Close
+* NMT Write(stop remote node)
+* Interface Close
