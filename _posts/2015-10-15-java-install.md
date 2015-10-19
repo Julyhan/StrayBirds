@@ -1,4 +1,9 @@
-
+---
+layout: post
+title: java环境配置
+category: coding
+comments: true
+---
 
 
 
