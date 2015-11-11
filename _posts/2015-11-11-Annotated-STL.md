@@ -17,6 +17,21 @@ set_difference
 set_symmetric_difference
 ```
 
+###仿函数
+```
+template<class T>
+struct display
+{
+	void operator()(const T &x) const
+	{
+		cout << x << ' ';
+	}
+};
+
+//调用
+for_each(a.begin(), a.end(), display<int>());
+```
+
 ###elegent code
 
 ####将两个向量的剩余元素插入结果
